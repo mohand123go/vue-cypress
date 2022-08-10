@@ -21,19 +21,19 @@ export default {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(payload),
+          body: JSON.stringify([1]),
         });
         const data = await res.json();
         console.log("data", data);
         return data;
       } catch (erro) {
-        console.log(erro);
+        console.log('erro', erro);
       }
     },
   },
   async created() {
     // const data = await this.callingApi({ status: 500 });
-    // console.log('data',data);
+    console.log('counter', 0);
   },
 };
 </script>
@@ -43,6 +43,12 @@ export default {
     <div class="wrapper">
       <h1 data-qa="c-header" v-if="visable">{{ msg }}</h1>
       <button data-qa="c-button" @click="handleClick">click</button>
+      <input type="text" data-qa="c-input">
+      <ul>
+        <li data-qa="link">A</li>
+        <li data-qa="link">B</li>
+        <li data-qa="link">C</li>
+      </ul>
       <!-- <nav>
         <RouterLink to="/about">about</RouterLink>
       </nav> -->
